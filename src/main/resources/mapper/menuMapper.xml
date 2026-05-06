@@ -15,49 +15,39 @@ namespace="com.green.menus.mapper.MenuMapper" : interface 위치
 	<select id="getMenuList"
 	        resultType="com.green.menus.dto.MenuDTO">
 			
-	SELECT     MENU_ID, MENu_NAME, MENU_SEQ
-	 FROM      MENUS
-	 ORDER BY  MENU_SEQ ASC
-	 	
+	SELECT     MENU_ID, MENU_NAME, MENU_SEQ
+	FROM       MENUS
+	ORDER BY   MENU_SEQ ASC
 	</select>
 	
 	<!-- 메뉴 한개 조회 -->
 	<select  id="getMenu">
-	
 	SELECT     MENU_ID, MENu_NAME, MENU_SEQ
-	 FROM      MENUS
-	 WHERE     MENU_ID  =  #{ menu_id }
-	
+	FROM       MENUS
+	WHERE      MENU_ID  =  #{ menu_id }
 	</select>
 	
 	<!-- 메뉴 추가 -->
 	<insert  id="insertMenu">
-	
 	INSERT INTO MENUS ( MENU_ID, MENU_NAME, MENU_SEQ )
-	 VALUES ( #{ menu_id }, #{ menu_name }, #{ menu_seq } )	
-	
+	VALUES ( #{ menu_id }, #{ menu_name }, #{ menu_seq } )	
 	</insert>
 	
 	<!-- 메뉴 삭제 -->
 	<delete  id="deleteMenu">
-	
 	DELETE FROM MENUS
-     WHERE MENU_ID = #{ menu_id }
-	
+    WHERE  MENU_ID = #{ menu_id }
 	</delete>
 	
 	<!-- 메뉴 수정 -->
 	<update  id="updateMenu">
-	
 	UPDATE  MENUS  
-	 SET    MENU_NAME  =  #{ menu_name  },
+	SET     MENU_NAME  =  #{ menu_name  },
 	        MENU_SEQ   =  #{ menu_seq   }
-	 WHERE  MENU_ID    =  #{ menu_id    }
-	
+	WHERE   MENU_ID    =  #{ menu_id    }
 	</update>
 	
 	<insert  id="insertMenu2">
-	
 	INSERT INTO MENUS (
 	    MENU_ID,
 	    MENU_NAME,
@@ -69,19 +59,7 @@ namespace="com.green.menus.mapper.MenuMapper" : interface 위치
 	    #{  menu_name  },
 	    (SELECT NVL( MAX(MENU_SEQ), 0) + 1 FROM MENUS)
 	)
-	 
 	</insert>
   
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
 
