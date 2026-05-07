@@ -44,6 +44,23 @@
 	SET    HIT = HIT + 1
 	WHERE  IDX = #{idx}
 	</update>
+	
+	<insert id="insertBoard">
+		INSERT INTO BOARD (
+	    IDX,
+	    MENU_ID,
+	    TITLE,
+	    CONTENT,
+	    WRITER
+	) VALUES ( 
+	    (SELECT NVL(MAX(IDX), 0)+1 FROM BOARD),
+	    #{menu_id},
+	    #{title},
+	    #{content},
+	    #{writer}
+	)	
+	</insert>
+	
 </mapper>
 
 

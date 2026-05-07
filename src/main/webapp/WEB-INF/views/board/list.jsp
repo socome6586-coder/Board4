@@ -63,8 +63,8 @@
 	    </tr>
 	    <tr>
 	      <td  colspan="5">
-	       [<a href="/Board/WriteForm">새 글 등록</a>]&nbsp;&nbsp;&nbsp; 
-	       [<a href="/">Home</a>] 
+	       [<a href="/Board/WriteForm?menu_id=${menu_id}">새 글 등록</a>]&nbsp;&nbsp;&nbsp; 
+	       [<a href="/">Home</a>]
 	      </td>
 	    </tr>
 	    

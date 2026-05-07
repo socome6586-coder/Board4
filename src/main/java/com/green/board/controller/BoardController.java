@@ -44,10 +44,14 @@ public class BoardController {
 		// 게시물 목록 조회 - list.jsp
 		List<BoardDto>  boardList  =  boardMapper.getBoardList( menuDto );
 		
+		// 넘어온 menu_id
+		String menu_id    = menuDto.getMenu_id();
+		
 		ModelAndView  mv  =  new  ModelAndView();
 		mv.setViewName("board/list");
 		mv.addObject("menuList", menuList);
 		mv.addObject("bList", boardList);
+		mv.addObject("menu_id", menu_id);
 		return  mv;
 	}
 	
@@ -78,6 +82,10 @@ public class BoardController {
 	// /Board/WriteForm?menu_id=MENU01
 	@RequestMapping("/WriteForm")
 	public ModelAndView writeForm(BoardDto boardDto) {
+		
+		// 메뉴목록 추가
+		List<MenuDTO> menuList = menuMapper.getMenuList();
+		
 		System.out.println("/Board/WriteForm 의 boardDto : " + boardDto);
 		
 		String menu_id = boardDto.getMenu_id();
@@ -85,6 +93,7 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/write");
 		mv.addObject("menu_id", menu_id);
+		mv.addObject("menuList", menuList);
 		return mv;
 	}
 	
@@ -92,7 +101,12 @@ public class BoardController {
 	@RequestMapping("/Write")
 	public ModelAndView write(BoardDto boardDto) {
 		
+		System.out.println("write boardDto : " + boardDto);
+		// write boardDto : BoardDto(idx=0, menu_id=MENU01, title=aa, content=aaa, writer=aa, regdate=null, hit=0)
+		
 		//db 저장
+		boardMapper.insertBoard(boardDto);
+		
 		String menu_id = boardDto.getMenu_id();
 		
 		// 페이지 이동
