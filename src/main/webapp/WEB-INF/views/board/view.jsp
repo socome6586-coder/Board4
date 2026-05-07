@@ -50,11 +50,15 @@
   }
   
   #table1 tr:nth-of-type(3) td:nth-of-type(2) {
-  text-align : left;
+  	text-align : left;
   }
   
   #table1 tr:nth-of-type(4) {
-  height : 400px;
+  	height : 400px;
+  td:nth-of-type(2) {
+  	text-align : left;
+  	vertical-align: baseline;
+  	}
   }
   
     

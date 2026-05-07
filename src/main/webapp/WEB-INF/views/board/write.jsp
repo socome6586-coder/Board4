@@ -50,7 +50,7 @@
   <main>
     <%@include file="/WEB-INF/include/menus.jsp"%>
     
-    <h2>새 글 작성</h2>
+    <h2>${menu_name} 새 글 작성</h2>
     <form  action="/Board/Write" method="post">
     <input type="hidden" name="menu_id" value="${menu_id}" />
      <table id="table1">

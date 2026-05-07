@@ -22,9 +22,16 @@ namespace="com.green.menus.mapper.MenuMapper" : interface 위치
 	
 	<!-- 메뉴 한개 조회 -->
 	<select  id="getMenu">
-	SELECT     MENU_ID, MENu_NAME, MENU_SEQ
+	SELECT     MENU_ID, MENU_NAME, MENU_SEQ
 	FROM       MENUS
 	WHERE      MENU_ID  =  #{ menu_id }
+	</select>
+	
+	<!-- menu_id 를 menu_name 조회 -->
+	<select id="getMenuName">
+	SELECT  MENU_NAME
+	FROM    MENUS
+	WHERE   MENU_ID = #{param1}
 	</select>
 	
 	<!-- 메뉴 추가 -->

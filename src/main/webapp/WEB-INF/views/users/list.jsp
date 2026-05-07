@@ -63,8 +63,8 @@
 	      <td> ${ user.email    }  </td>
 	      <td> ${ user.upoint   }  </td>
 	      <td> ${ user.regdate  }  </td>
-	      <td> <a href="/Users/Delete?userid=${user.userid}">삭제</a> </td>	      
-	      <td> <a href="/Users/UpdateForm?userid=${user.userid}">수정</a>  </td>
+	      <td> <a href="/Users/Delete?userid=${user.userid}">삭제</a></td>	      
+	      <td> <a href="/Users/UpdateForm?userid=${user.userid}">수정</a></td>
 	    </tr>
 	    </c:forEach>
 	  </table>	

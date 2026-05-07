@@ -45,6 +45,7 @@
 	WHERE  IDX = #{idx}
 	</update>
 	
+	<!-- 게시글 등록 -->
 	<insert id="insertBoard">
 		INSERT INTO BOARD (
 	    IDX,
@@ -60,6 +61,21 @@
 	    #{writer}
 	)	
 	</insert>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deleteBoard">
+	DELETE FROM BOARD
+    WHERE  IDX = #{idx}
+	</delete>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateBoard">
+  	UPDATE BOARD 
+    SET    TITLE   = #{title}, 
+           CONTENT = #{content}
+    WHERE  IDX     = #{idx}
+</update>
+
 	
 </mapper>
 
