@@ -30,7 +30,7 @@
 	    TITLE,
 	    CONTENT,
 	    WRITER,
-	    REGDATE,
+	    TO_CHAR(REGDATE,'YYYY-MM-DD') REGDATE,
 	    HIT
 	FROM
 	    BOARD

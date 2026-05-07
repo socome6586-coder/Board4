@@ -5,8 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 <link rel="shortcut icon" href="/img/favicon2.png" type="image/x-icon">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link href="/css/common.css" rel="stylesheet" />
 
 <style>
@@ -20,10 +23,42 @@
 	     border:1px solid white;
 	 } 
   }
+  
   tr:last-child > td {
       background: white;
       border : 1px solid black; 
   }
+  
+  #table1 {
+  	  td {
+  	  	&:nth-of-type(1) {
+  	  		width : 150px;
+  	  	}
+  	  	&:nth-of-type(2) {
+  	  		width : 150px;
+  	  	}
+  	  	&:nth-of-type(3) {
+  	  		width : 150px;
+  	  		background : black;
+  	  		color : white;
+  	  		border : 1px solid white;
+  	  	}
+  	  	&:nth-of-type(4) {
+  	  		width : 150px;
+  	  	}
+  	 }
+  }
+  
+  #table1 tr:nth-of-type(3) td:nth-of-type(2) {
+  text-align : left;
+  }
+  
+  #table1 tr:nth-of-type(4) {
+  height : 400px;
+  }
+  
+    
+  /* -------------------------------------------- */
     
   input[type="text"], input[type=number], input[type=password]  {
      width : 100%;
@@ -36,13 +71,16 @@
   }
   
 </style>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
 <body> 
   <main>
     <!-- 메뉴 출력 -->
   	<%@include file="/WEB-INF/include/menus.jsp"%>
   	
     <h2>게시글 내용 보기</h2>
-     <table>
+     <table id="table1">
       <tr>
         <td>글 번호</td>
         <td>${board.idx}</td>
@@ -65,12 +103,12 @@
       </tr>
       
       <tr>
-        <td colspan="4" style="text-align: right;">
-        <a href="/Board/WriteForm">[새 글 쓰기]</a>
-        <a href="/Board/UpdateForm?idx=${board.idx}">[수정]</a>
-        <a href="/Board/Delete?idx=${board.idx}">[삭제]</a>
-        <a href="/Board/List">[목록]</a>
-        <a href="/">[HOME]</a>
+        <td colspan="4">
+        <a href="/Board/WriteForm?menu_id=${board.menu_id}" class="btn btn-dark">새 글 쓰기</a>
+        <a href="/Board/UpdateForm?idx=${board.idx}&menu_id=${board.menu_id}" class="btn btn-dark">수정</a>
+        <a href="/Board/Delete?idx=${board.idx}&menu_id=${board.menu_id}" class="btn btn-dark">삭제</a>
+        <a href="/Board/List?menu_id=${board.menu_id}" class="btn btn-dark">목록</a>
+        <a href="/" class="btn btn-dark">HOME</a>
         </td>
       </tr>
      </table>    
