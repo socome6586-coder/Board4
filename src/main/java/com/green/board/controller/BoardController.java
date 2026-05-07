@@ -140,23 +140,33 @@ public class BoardController {
 	}
 
 	// /Board/UpdateForm?idx=7&menu_id=MENU01
+	@RequestMapping("/UpdateForm")
+	public ModelAndView updateForm(BoardDto boardDto) {
+	    // 1. 상단 메뉴바 등을 위한 메뉴 목록 조회
+	    List<MenuDTO> menuList = menuMapper.getMenuList();
+	    
+	    // 2. 수정할 게시글의 기존 데이터를 DB에서 조회
+	    BoardDto board = boardMapper.getBoard(boardDto);
+	    
+	    ModelAndView mv = new ModelAndView();
+	    mv.setViewName("board/update");
+	    mv.addObject("menuList", menuList);
+	    mv.addObject("board", board);
+	    
+	    return mv;
+	}
+	// /Board/Update
+	@RequestMapping("/Update")
+	public ModelAndView update(BoardDto boardDto) {
+	    // 1. 게시글 수정 실행
+	    boardMapper.updateBoard(boardDto);
+	    
+	    // 2. 수정 후 상세 페이지나 목록으로 이동
+	    // 상세 페이지로 이동할 때 idx가 필요합니다.
+	    ModelAndView mv = new ModelAndView();
+	    mv.setViewName("redirect:/Board/View?idx=" + boardDto.getIdx());
+	    return mv;
+	}
 
-
-
-
-	
-	
-	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
