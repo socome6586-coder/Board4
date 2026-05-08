@@ -100,7 +100,7 @@
 	    <tr>
 	      <td> ${ board.idx     }  </td>    <!-- menu.getMenu_id() -->
 	      <td class="title">
-	      	 <a href="/Board/View?idx=${board.idx}">
+	      	 <a href="/Board/View?idx=${board.idx}&menu_id=${menu_id}">
 	      	   ${ board.title   }  </td>
 	      	 </a>
 	      <td> ${ board.writer  }  </td>

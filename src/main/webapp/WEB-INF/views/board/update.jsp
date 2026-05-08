@@ -25,7 +25,6 @@
     }
     #table1 td:nth-of-type(1) { width : 150px; }
     
-    /* 입력 폼 스타일 커스텀 */
     input[type="text"], textarea { 
         width: 100%; 
         border: 1px solid #ccc; 
@@ -50,7 +49,6 @@
     <form action="/Board/Update" method="POST">
         <!-- 히든 필드 -->
         <input type="hidden" name="idx" value="${board.idx}">
-        <input type="hidden" name="menu_id" value="${board.menu_id}">
         
         <table id="table1">
             <tr>
@@ -66,7 +64,7 @@
             <tr>
                 <td>내용</td>
                 <td>
-                    <textarea name="content" required>${board.content}</textarea>
+                    <textarea name="content">${board.content}</textarea>
                 </td>
             </tr>
             <tr>

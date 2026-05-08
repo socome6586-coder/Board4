@@ -31,7 +31,7 @@
 	  	color : white;
 	    background-color : black;
 	    padding : 10px;
-	  &:hover {
+	  	&:hover, &.active {
 	  		text-decoration : none;
 		    background-color : #04AA6D;
 		    color : white;
